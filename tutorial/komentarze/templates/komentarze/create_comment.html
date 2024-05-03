@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+	<title>Create comment</title>
+</head>
+<body>
+	<h1>Napisz nowy komentarz</h1>
+	
+	<form method='post'>
+		{% csrf_token %}
+		{{ form }}
+		<button type="submit">Zatwierdź</button>
+	</form>
+</body>
+</html>
