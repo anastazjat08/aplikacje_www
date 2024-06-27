@@ -1,0 +1,49 @@
+<!doctype html>
+
+	<head>
+		
+		<title>Dodaj abstrakt</title>
+		<style type="text/css">
+			.abs{
+				padding: 5px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div>
+			
+			<div>
+				<h1>Dodaj abstrakt do konferencji - "{{name}}"</h1>
+			</div>
+			<div>
+				<form method='post'>
+					{% csrf_token %}
+                        <div class='abs'>
+                        	<label for="id_title">Tytuł</label>
+                            <div>{{form.title}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_text">Tekst</label>
+                            <div>{{form.text}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_typ_a">Typ abstraktu</label>
+                            <div>{{form.type_a}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_author">Autor</label>
+                            <div>{{form.author}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_affiliation">Afiliacja</label>
+                            <div>{{form.affiliation}}</div>
+                        </div>                       
+					<button type="submit">Zatwierdź</button>
+				</form>
+
+			</div>
+		</div>
+	</body>

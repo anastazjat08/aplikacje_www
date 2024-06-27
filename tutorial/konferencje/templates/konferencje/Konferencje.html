@@ -1,0 +1,63 @@
+<!doctype html>
+
+	<head>
+		<title>Konferencje</title>
+		<style type="text/css">
+			th, td{
+				padding: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+	<div>
+		<div>
+			<h1>Konferencje naukowe - Universe of biology</h1>
+		</div>
+        <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Miejsce</th>
+                    <th>Data rozpoczęcia</th>
+                    <th>Data zakończenia</th>
+                    <th>Deadline na abstrakty</th>
+                    <th>Dodaj</th>
+                    <th>Edytuj</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for conf in all_conferences %}
+                <tr>
+                    <td>{{ conf.name }}</td>
+                    <td>{{ conf.place }}</td>
+                    <td > {{ conf.start_date }} </td>
+                    <td >{{ conf.end_date }}</td>
+                    <td>{{ conf.abstract_deadline }}</td>
+                    <td >{% if conf.abstract_deadline >= today %}
+                    	<a href = "{% url 'dodaj' conf.name %}"><button>Dodaj abstrakt</button></a>
+                    	{% else %}
+                    	<p>Termin zgłoszeń minął</p>
+                    	{% endif %}
+                    </td>
+                    <td >{% if conf.abstract_deadline >= today %}
+                    		{% for abstract in conf.abstract_set.all %}
+                    		<a href="{% url 'edytuj' conf.name abstract.title %}">{{abstract.title}}</a>
+                    		{% endfor %}
+                    	{% else %}
+                    	<p>Termin edycji minął</p>
+                    	{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+	</body>

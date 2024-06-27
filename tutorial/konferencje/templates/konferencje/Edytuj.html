@@ -1,0 +1,37 @@
+<!doctype html>
+	<head>
+		<title>Edytuj abstrakt</title>
+	</head>
+	<body>
+		<div>
+			<h1>Edytuj abstrakt - "{{title}}"</h1>
+		</div>
+
+		<div>
+				<form method='post'>
+					{% csrf_token %}
+                        <div class='abs'>
+                        	<label for="id_title">Tytuł</label>
+                            <div>{{form.title}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_text">Tekst</label>
+                            <div>{{form.text}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_typ_a">Typ abstraktu</label>
+                            <div>{{form.type_a}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_author">Autor</label>
+                            <div>{{form.author}}</div>
+                        </div>
+                        <div class='abs'>
+                            <label for="id_affiliation">Afiliacja</label>
+                            <div>{{form.affiliation}}</div>
+                        </div>                       
+					<button type="submit">Zatwierdź</button>
+				</form>
+
+			</div>
+	</body>
